@@ -33,16 +33,18 @@ public class CsvProcessing {
     public MappingIterator<Car> GetCarCsvData() throws IOException {
         CsvMapper csvMapper = GetCsvMapper();
         CsvSchema carSchema = CsvSchema.emptySchema().withHeader();
-        MappingIterator<Car> cars = csvMapper.readerFor(Car.class).with(carSchema).readValues(new File(
-                "F:/Books/Crio.do_Internship/GeekTrust/RacingCars-GeekTrust/racingcars-geektrust/src/main/resources/Data/Teams.csv"));
+        MappingIterator<Car> cars = csvMapper.readerFor(Car.class)
+        .with(carSchema)
+        .readValues(new File(carCsv));
         return cars;
     }
 
     public MappingIterator<Part> GetPartCsvData() throws IOException {
         CsvMapper csvMapper = GetCsvMapper();
         CsvSchema partSchema = CsvSchema.emptySchema().withHeader();
-        MappingIterator<Part> parts = csvMapper.readerFor(Part.class).with(partSchema).readValues(new File(
-                "F:/Books/Crio.do_Internship/GeekTrust/RacingCars-GeekTrust/racingcars-geektrust/src/main/resources/Data/Teams.csv"));
+        MappingIterator<Part> parts = csvMapper.readerFor(Part.class)
+        .with(partSchema)
+        .readValues(new File(partsCsv));
         return parts;
     }
 
