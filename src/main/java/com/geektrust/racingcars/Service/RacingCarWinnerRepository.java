@@ -16,7 +16,7 @@ public interface RacingCarWinnerRepository {
     
     public List<Part> GetPartsList(String partListId) throws IOException;
 
-    public List<TeamEntity> GetTeamEntityList(List<Team> teams) throws IOException;
+    public List<TeamEntity> GetTeamEntityList(List<Team> teams, List<Car> cars) throws IOException;
 
     public List<CarEntity> GetCarEntityList(List<Car> cars) throws IOException;
 

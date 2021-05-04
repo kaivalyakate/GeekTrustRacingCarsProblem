@@ -2,6 +2,8 @@ package com.geektrust.racingcars.DataProcessing;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.databind.MappingIterator;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
@@ -21,31 +23,43 @@ public class CsvProcessing {
         return csvMapper;
     }
 
-    public MappingIterator<Team> GetTeamCsvData() throws IOException{
+    public List<Team> GetTeamCsvData() throws IOException{
         CsvMapper csvMapper = GetCsvMapper();
         CsvSchema teamSchema = CsvSchema.emptySchema().withHeader();
         MappingIterator<Team> teams = csvMapper.readerFor(Team.class)
         .with(teamSchema)
         .readValues(new File(teamCsv));
-        return teams;
+        List<Team> teamList = new ArrayList<>();
+        while(teams.hasNext()){
+            teamList.add(teams.next());
+        }
+        return teamList;
     }
 
-    public MappingIterator<Car> GetCarCsvData() throws IOException {
+    public List<Car> GetCarCsvData() throws IOException {
         CsvMapper csvMapper = GetCsvMapper();
         CsvSchema carSchema = CsvSchema.emptySchema().withHeader();
         MappingIterator<Car> cars = csvMapper.readerFor(Car.class)
         .with(carSchema)
         .readValues(new File(carCsv));
-        return cars;
+        List<Car> carList = new ArrayList<>();
+        while (cars.hasNext()) {
+            carList.add(cars.next());
+        }
+        return carList;
     }
 
-    public MappingIterator<Part> GetPartCsvData() throws IOException {
+    public List<Part> GetPartCsvData() throws IOException {
         CsvMapper csvMapper = GetCsvMapper();
         CsvSchema partSchema = CsvSchema.emptySchema().withHeader();
         MappingIterator<Part> parts = csvMapper.readerFor(Part.class)
         .with(partSchema)
         .readValues(new File(partsCsv));
-        return parts;
+        List<Part> partList = new ArrayList<>();
+        while (parts.hasNext()) {
+            partList.add(parts.next());
+        }
+        return partList;
     }
 
 }
