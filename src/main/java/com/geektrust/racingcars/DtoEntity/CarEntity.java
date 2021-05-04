@@ -1,29 +1,34 @@
-package com.geektrust.racingcars.dto;
+package com.geektrust.racingcars.DtoEntity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
+
+import com.geektrust.racingcars.dto.Part;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Car {
+public class CarEntity {
     
-    @JsonProperty("car_id")
+    @NonNull
     private String carId;
 
-    @JsonProperty("car_name")
+    @NonNull
     private String carName;
 
-    @JsonProperty("base_speed")
+    @NonNull
     private int baseSpeed;
 
-    @JsonProperty("top_speed")
+    @NonNull
     private int topSpeed;
 
-    @JsonProperty("part_list_id")
+    @NonNull
     private String partListId;
-    
+
+    @NonNull
+    private List<Part> addablePartsList;
 }

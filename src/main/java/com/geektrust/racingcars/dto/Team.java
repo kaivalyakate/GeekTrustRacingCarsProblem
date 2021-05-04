@@ -16,10 +16,10 @@ import lombok.Setter;
 public class Team {
     
     @JsonProperty("team_id")
-    private int team_id;
+    private int teamId;
 
     @JsonProperty("team_name")
-    private String team_name;
+    private String teamName;
 
     @JsonProperty("cars")
     private String cars;
