@@ -22,4 +22,5 @@ public class Part {
 
     @JsonProperty("speed_boost")
     private int speedBoost;
+
 }
