@@ -4,13 +4,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.databind.MappingIterator;
 import com.geektrust.racingcars.DataProcessing.CsvProcessing;
 import com.geektrust.racingcars.DtoEntity.CarEntity;
-import com.geektrust.racingcars.Service.RacingCarWinnerRepository;
-import com.geektrust.racingcars.Service.RacingCarWinnerRepositoryImpl;
+import com.geektrust.racingcars.DtoEntity.TeamEntity;
+import com.geektrust.racingcars.Repository.RacingCarWinnerRepository;
+import com.geektrust.racingcars.Repository.RacingCarWinnerRepositoryImpl;
 import com.geektrust.racingcars.dto.Car;
-import com.geektrust.racingcars.dto.Team;
 
 /**
  * Hello world!
@@ -25,11 +24,8 @@ public class App
         //     System.out.println(teams.next().getFunds());
         // }
         RacingCarWinnerRepository racingCarWinnerRepository = new RacingCarWinnerRepositoryImpl();
-        List<Car> cars = new ArrayList<>();
-        List<CarEntity> carsEntityList = racingCarWinnerRepository.GetCarEntityList(cars);
-        for(CarEntity carsEntity: carsEntityList){
-            System.out.println(carsEntity.getCarId());
-        }
+        List<TeamEntity> teams = racingCarWinnerRepository.GetTeamEntityList(new CsvProcessing().GetTeamCsvData(), new CsvProcessing().GetCarCsvData());
+        System.out.println(teams.get(0).getTeamName());
     }
 }
 

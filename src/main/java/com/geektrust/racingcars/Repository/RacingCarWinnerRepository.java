@@ -1,4 +1,4 @@
-package com.geektrust.racingcars.Service;
+package com.geektrust.racingcars.Repository;
 
 import java.io.IOException;
 import java.util.List;
@@ -18,6 +18,6 @@ public interface RacingCarWinnerRepository {
 
     public List<TeamEntity> GetTeamEntityList(List<Team> teams, List<Car> cars) throws IOException;
 
-    public List<CarEntity> GetCarEntityList(List<Car> cars) throws IOException;
+    public List<CarEntity> GetCarEntityList(List<Car> cars, List<String> teamCars) throws IOException;
 
 }
